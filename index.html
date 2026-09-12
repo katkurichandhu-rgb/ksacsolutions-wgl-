@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS AC SOLUTIONS - Premium Service Warangal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --accent-blue: #00a8ff;
+            --light-bg: #f4f9ff;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { 
+            background-color: var(--light-bg); 
+            color: var(--text-dark); 
+            padding-bottom: 75px;
+        }
+
+        /* Top Header */
+        header { 
+            background: #ffffff;
+            padding: 12px 18px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .brand-title { font-size: 19px; font-weight: 900; color: var(--primary-blue); letter-spacing: 0.5px; }
+        .brand-title span { color: var(--accent-blue); }
+        .brand-sub { font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; font-weight: 700; display: block; margin-top: 1px; }
+        .header-logo { height: 42px; width: auto; border-radius: 6px; }
+
+        /* Navigation Bar (2 Pages) */
+        nav {
+            display: flex;
+            background: #e2f1ff;
+            border-bottom: 1px solid #cbd5e1;
+        }
+        nav button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: none;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        nav button.active {
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--primary-blue);
+            background: #ffffff;
+        }
+
+        /* Page Layout */
+        .page { display: none; padding: 20px 16px; max-width: 800px; margin: auto; }
+        .page.active { display: block; }
+
+        /* Hero Banner Section */
+        .hero { text-align: center; padding: 20px 10px; }
+        .badge { 
+            background: #e0f2fe; 
+            color: var(--primary-blue); 
+            padding: 6px 14px; 
+            border-radius: 20px; 
+            font-size: 11px; 
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        .hero h1 { font-size: 24px; color: var(--text-dark); margin-bottom: 8px; font-weight: 800; }
+        .hero h1 span { color: var(--primary-blue); }
+        .hero p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+
+        /* Direct Call Button */
+        .top-call-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0056b3, #00a8ff);
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+            width: 100%;
+            max-width: 320px;
+        }
+
+        /* Service Cards with Images */
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 15px; }
+        .service-card { 
+            background: var(--card-bg); 
+            border-radius: 12px; 
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+        .card-img-container { height: 160px; width: 100%; overflow: hidden; background: #e2e8f0; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; }
+        .card-content { padding: 16px; }
+        .service-card h3 { font-size: 16px; color: var(--primary-blue); margin-bottom: 6px; font-weight: 700; }
+        .service-card p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+        /* Features Box */
+        .features-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .feature-item { font-size: 11px; font-weight: 600; color: var(--text-dark); }
+        .feature-item i { font-size: 20px; color: var(--accent-blue); display: block; margin-bottom: 6px; }
+
+        /* Info / Contact Card */
+        .info-card { 
+            background: #ffffff; 
+            border-radius: 12px; 
+            padding: 20px; 
+            margin-top: 20px; 
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-blue);
+        }
+        .info-card h3 { color: var(--primary-blue); font-size: 16px; margin-bottom: 8px; }
+        .info-card p { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+
+        /* Bottom Fixed Bar */
+        .action-bar { 
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            background: #ffffff; 
+            display: flex; 
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .action-btn { flex: 1; padding: 14px; text-align: center; text-decoration: none; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .act-call { background: var(--primary-blue); color: #fff; }
+        .act-wa { background: #25d366; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <div class="brand-title"><span>KS</span> AC SOLUTIONS</div>
+            <span class="brand-sub">WARANGAL</span>
+        </div>
+        <div>
+            <img src="193888.png" alt="KS AC Solutions" class="header-logo">
+        </div>
+    </header>
+
+    <!-- 2 Page Tab Bar -->
+    <nav>
+        <button class="active" onclick="switchPage('home', this)"><i class="fa-solid fa-house"></i> Home</button>
+        <button onclick="switchPage('services', this)"><i class="fa-solid fa-list-check"></i> Our Services</button>
+    </nav>
+
+    <!-- PAGE 1: HOME -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <span class="badge">⚡ FAST DOORSTEP SERVICE</span>
+            <h1>Warangal's Best <span>AC & Appliance Care</span></h1>
+            <p>Reliable Repair, Installation, Jet Wash Cleaning & Gas Charging Services.</p>
+            
+            <a href="tel:6302135291" class="top-call-btn">
+                <i class="fa-solid fa-phone"></i> CALL NOW: 6302135291
+            </a>
+        </section>
+
+        <div class="features-box">
+            <div class="feature-item"><i class="fa-solid fa-user-gear"></i> Expert Service</div>
+            <div class="feature-item"><i class="fa-solid fa-clock"></i> Quick Response</div>
+            <div class="feature-item"><i class="fa-solid fa-tag"></i> Best Prices</div>
+        </div>
+
+        <div class="info-card">
+            <h3>KS AC SOLUTIONS</h3>
+            <p><i class="fa-solid fa-location-dot" style="color:var(--primary-blue);"></i> 100 Feet Rd, Abbanikunta, Warangal, Telangana</p>
+            <p><i class="fa-solid fa-phone" style="color:var(--accent-blue);"></i> Contact: <strong>+91 6302135291</strong></p>
+        </div>
+    </div>
+
+    <!-- PAGE 2: SERVICES -->
+    <div id="services" class="page">
+        <h2 style="text-align: center; font-size: 18px; color: var(--primary-blue); margin-bottom: 15px;">మా సేవలు (OUR SERVICES)</h2>
+        
+        <div class="service-grid">
+            <!-- AC Repair Image -->
+            <div class="service-card">
+                <div class="card-img-container">
+                    <img src="https://images.pexels.com/photos/8005397/pexels-photo-8005397.jpeg?auto=compress&cs=tinysrgb&w=600" alt="AC Service" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3><i class="fa-solid fa-snowflake"></i> AC Repair & Gas Charging</h3>
+                    <p>Cooling సమస్యలు, Gas Leakage వర్క్స్ మరియు Complete AC Repair ప్రొఫెషనల్‌గా చేయబడును.</p>
+                </div>
+            </div>
+
+            <!-- Washing Machine Image -->
+            <div class="service-card">
+                <div class="card-img-container">
+                    <img src="https://images.pexels.com/photos/5591581/pexels-photo-5591581.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Washing Machine Repair" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3><i class="fa-solid fa-soap"></i> Washing Machine Repair</h3>
+                    <p>అన్ని బ్రాండ్ల Washing Machine Drum, Motor & PCB Board సమస్యలకు శాశ్వత పరిష్కారం.</p>
+                </div>
+            </div>
+
+            <!-- Jet Cleaning Image -->
+            <div class="service-card">
+                <div class="card-img-container">
+                    <img src="https://images.pexels.com/photos/4108715/pexels-photo-4108715.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Jet Cleaning" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3><i class="fa-solid fa-shower"></i> High Pressure Jet Washing</h3>
+                    <p>High-Pressure Water Jet Pump తో ఫౌల్ స్మెల్ మరియు డస్ట్ లేకుండా Complete Cleaning.</p>
+                </div>
+            </div>
+
+            <!-- AC Installation Image -->
+            <div class="service-card">
+                <div class="card-img-container">
+                    <img src="https://images.pexels.com/photos/8005368/pexels-photo-8005368.jpeg?auto=compress&cs=tinysrgb&w=600" alt="AC Fitting" class="card-img">
+                </div>
+                <div class="card-content">
+                    <h3><i class="fa-solid fa-tools"></i> AC Fitting & Uninstallation</h3>
+                    <p>సురక్షితమైన AC Uninstallation మరియు పర్ఫెక్ట్ Wall Fitting సేవలు అందించబడును.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="action-bar">
+        <a href="tel:6302135291" class="action-btn act-call"><i class="fa-solid fa-phone"></i> CALL NOW</a>
+        <a href="https://wa.me/916302135291" class="action-btn act-wa" target="_blank"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</a>
+    </div>
+
+    <script>
+        function switchPage(pageId, btn) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Deactivate all nav buttons
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            // Activate selected button
+            btn.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
